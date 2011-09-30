@@ -1,0 +1,36 @@
+https://github.com/niltsh/MPlayerX/wiki/Some-settings-you-can%27t-find-in-the-UI
+
+Hidden Settings
+Some settings are not available in the UI, well, why bother? But for the one who concerns, please take a glance at this, you may find what you need.
+
+Basically, those settings are accessed by defaults command through the Terminal.app, in your Applications/Utilities/
+the command looks like this:
+
+cd ~/Library/Preferences
+defaults write org.niltsh.MPlayerX Name Value
+
+and the Name and Value are:
+
+Name	type	default value	comment
+SpeedStepIncre	 float	 0.1	 when to change the speed in the accessary control(the TextField), the increment value when press ↑↓
+SubDelayStepTime	 float	 0.1	 similar with SpeedStepTime, the time in seconds
+AudioDelayStepTime	 float	 0.1	 similar with SpeedStepTime, the time in seconds
+SubScaleStepValue	 float	 0.1	 similar with SpeedStepTime, it is rational to set this value within 0-1
+SeekStepTimeLR	 float	 10	 when use ←→ to forward/backward, the jump time in seconds
+SeekStepTimeUB	 float	 60	 when use ↑↓ to forward/backward, the jump time in seconds
+VolumeStep	 float	 10	 when use =/- or menu to increase/decrease the volume, the increment value(should be within 0-100)
+SnapshotSavePath	 string	(internal value)	 if you don’t want to save the snapshot pics on the desktop, the Full Path of the folder where you want to save it
+HideTitlebar	 boolean	 NO	 always hide titlebar even the mouse is hovering on the window
+LogMode	 boolean	 NO	 output logs to console
+Prefer64bitMPlayer	 boolean	YES	 try to use 64bit mplayer, even with YES, this will fallback to NO, if you have a 32bit CPU
+CloseOnStopped	 boolean	YES	 When playback finished, whether to close the player window
+SubBorderWidth	 integer	 2	 border width of the subtitle
+CloseWndOnEsc	 boolean	 NO	 close window when pressing escape
+PlayWhenEnterFullScrn	 boolean	 NO	 auto resume when entering full screen if paused
+SupportAppleRemote	 boolean	YES	 Support Apple Remote (Remote Buddy users may want to disable this)
+AssSubMarginV	 integer	 12	 the position of Subtitle from bottom, in pixels
+ResizeControlBar	 boolean	YES	 let the control bar autoresizing with window, or keep it unchanged
+InitialFrameSizeRatio	 float	 1.0	 the initial frame size ratio when opening a video
+DisableLastStopBookmark	 boolean	 NO	 disable the last stopped time completely
+ResizeStep	 float	 0.1	 the ratio when stepping up/down window size
+OldFullScreenMethod	 boolean	 NO	 the old style of full screen animation(only for Lion)
