@@ -1,0 +1,47 @@
+// Lua
+make macosx
+make test
+sudo make install
+
+// node
+./configure
+make
+sudo make install
+
+//npm
+curl http://npmjs.org/install.sh | sudo sh
+yes
+
+// now
+vi .profile
+export NODE_PATH="/usr/local/lib/node"
+npm -g root
+/usr/local/lib/node_modules
+(not in NODE_PATH env variable)
+sudo npm -g install now
+
+// coffee-script
+sudo npm -g install coffee-script
+
+// dnode
+sudo npm install -g dnode
+
+// express(library)
+sudo npm -g install express
+
+// link now
+npm link now
+
+// Mac Port & Luarocks & iLua Install
+sudo port install luarocks
+sudo luarocks make devtools-*.rockspec
+sudo port selfupdate
+
+// Luarocks
+./configure
+make
+sudo make install
+sudo luarocks install luasocket
+
+// Ruby Gem
+sudo gem install socket

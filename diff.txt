@@ -1,0 +1,2 @@
+--Different
+diff fileA fileB

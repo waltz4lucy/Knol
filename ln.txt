@@ -1,0 +1,3 @@
+ln -s ../India/Gulina/gulua .
+ln -s ../India/Gulina/Luacat luacat
+ln -s ../Wookay/Luacat/Luacat luacat

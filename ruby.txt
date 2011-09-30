@@ -1,0 +1,1 @@
+ruby utf8.rb |sh

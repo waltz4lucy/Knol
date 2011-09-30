@@ -1,0 +1,1 @@
+open -a Go2Shell --args config

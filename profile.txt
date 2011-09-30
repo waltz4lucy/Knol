@@ -1,0 +1,53 @@
+PS1='\W\$ '
+export TERM=xterm-256color
+export NODE_PATH="/usr/local/lib/node_modules"
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MOAI_BIN=/Developer/Applications/MoaiSDK/bin/osx
+export MOAI_CONFIG=/Developer/Applications/MoaiSDK/samples/config
+alias cdknol="cd /Volumes/Lucy\ Diamond/Lucy\ Diamond/Lucy\ Works/Git/LuaKing/Xtc/Knol/"
+alias cdida="cd /Volumes/Lucy\ Diamond/Lucy\ Diamond/Lucy\ Works/Git/India/"
+alias cdlk="cd /Volumes/Lucy\ Diamond/Lucy\ Diamond/Lucy\ Works/Git/LuaKing/"
+alias cdlc="cd /Volumes/Lucy\ Diamond/Lucy\ Diamond/Lucy\ Works/Git/Wookay/Luacat"
+alias cdgit="cd /Volumes/Lucy\ Diamond/Lucy\ Diamond/Lucy\ Works/Git/"
+alias gita='git commit -a'
+alias gitp='git pull'
+alias gitm='git push origin master'
+alias gitc='git clone'
+alias gitreset='git reset --hard HEAD'
+alias corona="/Developer/Applications/CoronaSDK/Corona\ Terminal"
+alias moai="$MOAI_BIN/moai $MOAI_CONFIG/config.lua"
+alias ls="ls -vGfal"
+
+c_cyan=`tput setaf 6`
+c_red=`tput setaf 1`
+c_green=`tput setaf 5`
+c_sgr0=`tput sgr0`
+
+parse_git_branch () {
+if git rev-parse --git-dir >/dev/null 2>&1
+	then
+		gitver=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+	else
+		return 0
+	fi
+	echo -e "" $gitver
+}
+
+branch_color () {
+if git rev-parse --git-dir >/dev/null 2>&1
+	then
+		color=""
+	if git diff --quiet 2>/dev/null >&2
+		then
+			color="${c_green}"
+		else
+			color=${c_red}
+		fi
+	else
+		return 0
+	fi
+	echo -ne $color
+}
+
+export PS1='\W\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
+# export PS1='\W\$ '

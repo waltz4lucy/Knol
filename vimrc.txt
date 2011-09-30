@@ -1,0 +1,50 @@
+set nocompatible                  " Must come first because it changes other options.
+set enc=UTF-8                     " Hangul
+set fileencodings=UTF-8           " Hangul
+set t_Co=256                      " 256 Color
+"colorscheme twilight256          " Twilight Color Scheme
+"colorscheme yzlin256
+set showcmd                       " Display incomplete commands.
+set showmode                      " Display the mode you're in.
+set showmatch                     " DIsplay the match
+set backspace=indent,eol,start    " Intuitive backspacing.
+set hidden                        " Handle multiple buffers better.
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+set nonumber                      " Show line numbers.
+set ruler                         " Show cursor position.
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+set nowrap                          " Turn on line wrapping.
+set scrolloff=3                   " Show 3 lines of context around the cursor.
+set title                         " Set the terminal's title
+set titlestring=%t%(\ %M%)
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
+set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set tabstop=2                     " Global tab width.
+set shiftwidth=2                  " And again, related.
+"set expandtab                    " Use spaces instead of tabs
+set laststatus=1                  " Show the status line all the time
+set cindent
+set autoindent
+set smartindent
+set history=15
+set paste                         " Paste
+set noai                          " Paste No Ai
+syntax on                         " Turn on syntax highlighting.
+"filetype plugin indent on        " Turn on file type detection.
+
+map <S-l> $
+map <S-h> ^
+map <S-k> <C-u>
+map <S-j> <C-d>
+
+map .# :s/^\(\s*\)/\1# <CR>
+map .3 :s/^\(\s*\)# \1/<CR>
+map .- :s/^\(\s*\)/\1-- <CR>
+map ._ :s/^\(\s*\)-- \1/<CR>
+map ./ :s/^\(\s*\)/\1\/\/ <CR>
+map .? :s/^\(\s*\)\/\/ \1/<CR>

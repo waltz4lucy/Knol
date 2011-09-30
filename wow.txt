@@ -1,0 +1,1 @@
+/run MainMenuBarTexture1:SetTexture("Interface\\MainMenuBar\\UI-MainMenuBar-Human");MainMenuBarLeftEndCap:SetTexture("Interface\\MainMenuBar\\UI-MainMenuBar-EndCap-Human");MainMenuBarRightEndCap:SetTexture("Interface\\MainMenuBar\\UI-MainMenuBar-EndCap-Human")

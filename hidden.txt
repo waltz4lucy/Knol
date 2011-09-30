@@ -1,0 +1,5 @@
+Make a file or folder invisible in Mac OS X Finder
+setfile -a V testfile.txt
+
+Make a file or folder visible again in Mac OS X Finder
+setfile -a v testfile.txt
