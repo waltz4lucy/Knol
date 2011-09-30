@@ -19,10 +19,6 @@ git config branch.master.merge refs/heads/master
 git push --all
 git pull
 
-
-
-
-
 $ sh init-git.sh prj
 $ git clone /home/repo/prj.git
 $ cd prj
@@ -30,9 +26,6 @@ $ echo "ok" > test
 $ git add *
 $ git commit -a
 $ git push origin master
-
-
-
 
 $ cd /home/repo/prj.git
 $ git config receive.denyCurrentBranch ignore
