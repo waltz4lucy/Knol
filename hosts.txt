@@ -1,4 +1,4 @@
-sudo nano /private/etc/hosts
+sudo vi /private/etc/hosts
 
 When done editing the hosts file, press control-o to save the file.
 Press enter on the filename prompt, and control-x to exit the editor.
