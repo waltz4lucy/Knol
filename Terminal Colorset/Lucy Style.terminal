@@ -77,8 +77,10 @@
 	AAAAAAAAAM4=
 	</data>
 	<key>BackgroundAlphaInactive</key>
-	<real>0.84819799270072993</real>
+	<real>0.80000000000000004</real>
 	<key>BackgroundBlur</key>
+	<real>0.0</real>
+	<key>BackgroundBlurInactive</key>
 	<real>0.0</real>
 	<key>BackgroundColor</key>
 	<data>
@@ -106,6 +108,8 @@
 	<integer>1</integer>
 	<key>DisableANSIColor</key>
 	<false/>
+	<key>EscapeNonASCIICharacters</key>
+	<true/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
