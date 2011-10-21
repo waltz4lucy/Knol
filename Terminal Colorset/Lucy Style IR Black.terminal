@@ -230,7 +230,7 @@
 	<key>UseBoldFonts</key>
 	<true/>
 	<key>UseBrightBold</key>
-	<false/>
+	<true/>
 	<key>VisualBell</key>
 	<false/>
 	<key>blackColour</key>
