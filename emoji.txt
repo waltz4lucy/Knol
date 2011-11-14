@@ -1,0 +1,1 @@
+option(alt) + command + t
