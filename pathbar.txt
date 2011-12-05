@@ -1,0 +1,9 @@
+Open a Terminal window (Finder->Applications->Utilities->Terminal) and type the following:
+
+defaults write com.apple.finder PathBarRootAtHome -bool TRUE;killall Finder
+
+The changes will take effect immediately. Should you wish at a later date to revert to the default path bar, open a Terminal window and type the following:
+
+defaults delete com.apple.finder PathBarRootAtHome;killall Finder
+
+Bonus tip: Files can be dragged and dropped onto any entry within the path bar to move the file to that location (hold Option before releasing the mouse button to copy the file instead).
