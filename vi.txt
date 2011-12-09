@@ -297,3 +297,14 @@ window=(w=) 편집된 내용이 저장되지 않고 쉘 명령을 사용할 경�
 wrapmargin=(wm=) 0 화면상에 보여줄 행의 수를 설정
 wrapscan(ws) ws 우측 마진을 설정
 writeany(wa) nowa 어떠한 화일이라도 시스템이 허용하는 범위내에서 쓰기 가능
+
+☞ Memo
+cw = change world
+c$
+ctrl g = file status
+u, ctrl R
+% = seek pair
+:s/old/new/g = one line
+:#,#s/old/new/g = between line number
+:%s/old/new/g = entire
+:#,#w Filename = write new file between line
