@@ -1,0 +1,7 @@
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
+
+http://en.wikipedia.org/wiki/Subpixel_rendering
+
+http://www.grc.com/ctwhat.htm
+
+http://alienryderflex.com/sub_pixel/
