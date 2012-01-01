@@ -1,0 +1,29 @@
+Naver Dic
+http://endic.naver.com/search.nhn?&searchOption=&isOnlyViewEE=N&query={query}
+
+Daum Stock
+http://stock.daum.net/search/search.daum?name={query}&nil_profile=vsearch&nil_src=stock
+ 
+Daum Movie
+http://movie.daum.net/search.do?type=all&nil_profile=vsearch&nil_src=movie&q={query}
+
+Daum Music
+http://music.daum.net/search/integrated/list?type=total&query={query}
+ 
+Daum Map
+http://local.daum.net/map/index.jsp?map_type=TYPE_MAP&map_hybrid=false&q={query}
+ 
+Daum News
+http://search.daum.net/search?w=news&nil_search=btn&enc=utf8&cluster=y&cluster_page=1&q={query}
+ 
+Daum Dic
+http://dic.daum.net/search.do?q={query}&dic=eng
+
+Bugs
+http://search.bugs.co.kr/total?q={query}
+
+To Ly
+http://to.ly/create.php?url={query}
+
+Apple App Search 
+http://www.apple.com/search/?q={query}
