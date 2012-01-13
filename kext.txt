@@ -1,0 +1,13 @@
+Copy the .kext file(s) to /System/Library/Extensions/
+Open the Terminal and type:
+cd /System/Library/Extensions/
+
+Type the following commands at the terminal, replacing the kext name with the one you are installing
+sudo chmod -R 755 kextfile.kext
+sudo chown -R root:wheel kextfile.kext
+
+Now remove the kext caches:
+sudo rm -R Extensions.kextcache
+sudo rm -R Extensions.mkext
+
+Reboot the Mac
