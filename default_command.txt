@@ -1,0 +1,43 @@
+It's easy to lose track of all the defaults commands used to perform tweaks to Mac OS X,
+but with the help of the history command it's easy to list every defaults write and accompanying defaults delete commands ever used on a Mac.
+Launch the Terminal to get started.
+
+See All Defaults Commands Executed
+To see all defaults commands, including defaults write, defaults read, defaults delete, and even those requiring sudo:
+
+history |grep "defaults"
+
+Will return something like this:
+
+47 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+48 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo IPaddress
+98 defaults write com.apple.DiskUtility DUDebugMenuEnabled 1
+206 defaults write com.apple.Safari IncludeInternalDebugMenu 1
+237 defaults write com.apple.dock itunes-notifications -bool TRUE;killall Dock
+238 defaults delete com.apple.dock itunes-notifications
+239 defaults write com.apple.dock desktop-picture-show-debug-text -bool TRUE;
+241 defaults delete com.apple.dock desktop-picture-show-debug-text;killall Dock
+
+See Only Defaults Write Commands
+To see only defaults write commands, including those requiring sudo:
+
+history |grep "defaults write"
+
+The results will look the same as above, but without showing any defaults read or defaults delete commands.
+
+See Only Defaults Delete Commands
+To see which defaults write commands have been reverted, grep for delete rather than write:
+
+history |grep "defaults delete"
+
+See Defaults Commands Related to Specific App
+By changing the text within grep to an application or process name,
+we can see which defaults commands were used only for that specific application.
+For example, to see only defaults commands that impacted the Finder:
+
+history |grep "defaults write com.apple.finder"
+
+Most apps are easy to find this way, and the default applications in OS X almost always follow the com.apple.appname convention.
+
+We touched on this concept before in a past post about the history command,
+but focusing on defaults commands is useful enough to deserve individual recognition.
