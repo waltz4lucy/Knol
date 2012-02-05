@@ -29,3 +29,6 @@ $ git push origin master
 
 $ cd /home/repo/prj.git
 $ git config receive.denyCurrentBranch ignore
+
+Example Command Line
+git checkout FILENAME
