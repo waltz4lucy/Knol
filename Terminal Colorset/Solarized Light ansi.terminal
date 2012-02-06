@@ -38,7 +38,7 @@
 	<key>FontAntialias</key>
 	<true/>
 	<key>FontWidthSpacing</key>
-	<real>1.004032258064516</real>
+	<real>1</real>
 	<key>ProfileCurrentVersion</key>
 	<real>2.02</real>
 	<key>RunCommandAsShell</key>

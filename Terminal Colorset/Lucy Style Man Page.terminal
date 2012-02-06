@@ -18,7 +18,7 @@
 	<key>CursorBlink</key>
 	<true/>
 	<key>CursorType</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>EscapeNonASCIICharacters</key>
 	<true/>
 	<key>Font</key>
@@ -33,7 +33,7 @@
 	<key>FontAntialias</key>
 	<true/>
 	<key>FontWidthSpacing</key>
-	<real>1.004032258064516</real>
+	<real>1</real>
 	<key>ProfileCurrentVersion</key>
 	<real>2.02</real>
 	<key>ShowDimensionsInTitle</key>
