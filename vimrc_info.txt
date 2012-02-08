@@ -1,0 +1,560 @@
+" =============================================================================
+" 유닉스 윈도우 공용 .vimrc 파일
+" Edited by Guk-Bong Kwon<gbkwon@kebi.com> 2003/07/22-01 + nooh =)
+" =============================================================================
+" =============================================================================
+" $VIMRUNTIME 을 먼저 설정 해준다. 기본적으로 설정을 해주지 않아도 되나 인식이
+" 안되는 시스템이 있어 기본 값으로 설정을 해 준다.
+" =============================================================================
+if has("unix")
+    let $VIMRUNTIME="/usr/share/vim/vim"
+elseif has ("win32")
+    let $VIMRUNTIME="C:/Vim/vim61"
+endif
+
+" =============================================================================
+" 기본적으로 설정되는 예제들을 포함 한다. history .. 등..
+" =============================================================================
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/gvimrc_example.vim
+
+" =============================================================================
+" 윈도우에서만 사용되는 여러가지 키 맵들을 포함한다.
+" C-v, C-c, C-q, C-a 등...
+" =============================================================================
+if has("win32")
+    source $VIMRUNTIME/mswin.vim
+endif
+
+" =============================================================================
+" selection, selectmode mousemodel 등 xterm-color 에 해당되는 내용을 기본으로
+" 설정 해준다.
+" set 'selection', 'selectmode', 'mousemodel' and 'keymodel' for xterm-color
+" =============================================================================
+behave xterm
+
+" =============================================================================
+" 여기서 부터는 기본적인 값들을 하나씩 설정 한다.
+" =============================================================================
+" =============================================================================
+" 엔터를 치거나 O, o 로 줄을 삽입 할때 자동으로 indentition 하는 가에 대한
+" 옵션이다.
+" =============================================================================
+set ai
+
+" =============================================================================
+" 아래와 같은 명령시 자동으로 저장 하는 가에 대한 옵션이다.
+" :next, :rewind, :last, :first, :previous, :stop, :suspend, :tag, :!,
+" :make, CTRL-] and CTRL-^ command; and when a CTRL-O, CTRL-I,
+" '{A-Z0-9}, or `{A-Z0-9} command takes one to another file.
+" =============================================================================
+set aw
+
+" =============================================================================
+" 아래와 같은 명령어시 모두 저장하는 가에 대한 옵션이다.
+" Like 'autowrite', but also used for commands ":edit", ":quit",
+" :qall", ":exit", ":xit", ":recover" and closing the Vim window.
+" =============================================================================
+set awa
+
+" =============================================================================
+" 파일을 열어서 편집 하고 있는 중에 파일이 변경 되었을때 자동으로 읽어서
+" 갱신하는 가에 대한 옵션이다. 자동으로 갱신을 하면 내가 편집한 부분에 대해서
+" 분실할 위험이 있다.
+" =============================================================================
+"set autoread
+" =============================================================================
+" vim 은 기본적으로 파일을 저장 하기 전에 백업 파일을 만드는데 그 파일을
+" 저장하는 디렉토리를 설정 하는 부분이다.
+" =============================================================================
+if has("unix")
+    set backupdir=~/tmp,~/,/tmp
+elseif has ("win32")
+    set backupdir=C:\Vim\backup
+endif
+
+" =============================================================================
+" 맨아래 보이는 명령줄의 높이를 정하는 옵션이다. 기본 값이 1이다.
+" =============================================================================
+set ch=1
+
+" =============================================================================
+" C언어를 작성할때 indentition 을 할 것 인가에 대한 옵션이다.
+" =============================================================================
+set cindent
+
+" =============================================================================
+" 구식 vi 와 동일하게 작동할 것인가에 대한 옵션이다. 구식 vi와 동일하게
+" 작동하도록 설정된다면 많은 편리한 기능을 사용할수 없을 것이다.
+" =============================================================================
+set nocompatible
+
+" =============================================================================
+" vimdiff일때 공백을 무시
+" =============================================================================
+set diffopt+=iwhite
+
+" =============================================================================
+" 인코딩에 대한 설정이다.  윈도우와 유닉스가 틀리다.
+" =============================================================================
+if has("unix")
+    set encoding=euc-kr
+elseif has ("win32")
+    set encoding=cp949
+endif
+
+" =============================================================================
+" indentition 시 탭대신 공백을 삽입 하는가에 대한 옵션이다. 이 옵션의 경우
+" Makefile 를 작성할때는 필히 꺼야 되는 옵션이다 Makefile 는 탭과 공백을
+" 정확히 구분하기 때문이다. 탭으로 정확히 작성되었는가를 알아 볼려면 :set list
+" 명령을 주면 정확히 알아 볼수 있게 된다.
+" =============================================================================
+set expandtab
+au BufNewFile,BufRead [mM]akefile,[mM]akefile*,GNUmakefile,*.mk,*.mak,*.dsp
+            \ set noexpandtab
+
+" =============================================================================
+" 현재 디렉토리에 .vimrc 가 있을 경우 ~/.vimrc 를 읽어 초기화후에 현재
+" 디렉토리에 .vimrc를 더불어 읽어 옵션을 다시 설정 한다.
+" ./.vimrc 를 읽어 들이기 위함 exrc 가 더 나중에 실행 되는 것 같음
+" =============================================================================
+set exrc
+au BufNewFile,BufRead *.c,*.h,*.java,*.cpp,*.jsp,*.php,*.ph set exrc
+" exrc 가 안되서 임시 방편
+if has("unix")
+    au BufNewFile,BufRead *.c,*.h,*.java,*.cpp,*.jsp,*.php,*.ph
+                \ if filereadable(".vimrc") | so .vimrc | endif
+elseif has("win32")
+    au BufNewFile,BufRead *.c,*.h,*.java,*.cpp,*.jsp,*.php,*.ph
+                \ if filereadable("_vimrc") | so _vimrc | endif
+endif
+
+" =============================================================================
+" 파일에 대한 인코딩을 설정한다. encoding, fileencoding, fileencodings 의 상관
+" 관계를 정확히 알지 못하겠다.
+" =============================================================================
+if has("unix")
+    set fileencoding=euc-kr
+elseif has ("win32")
+    set fileencoding=cp949
+endif
+
+" =============================================================================
+" 파일의 인코딩을 설정한다.
+" =============================================================================
+set fileencodings=euc-kr
+
+" =============================================================================
+" 폴더를 사용하는 방법에 대해서 설정한다. marker 는 { {{ 와 같은 표식을
+" 사용하여 폴딩 되는 소스의 범위를 설정 해 놓는다. 이는 이 파일을 다시
+" 열었을때 기존의 폴더 정보를 그대로 유지 할수 있게 해 준다.
+" =============================================================================
+set foldmethod=marker
+
+" =============================================================================
+" 폴더 설정이 되어 있는 파일을 열었을때 폴더 되어 있는 레벨을 설정한다.
+" 기본값 0이고 모두 폴딩된다.
+" =============================================================================
+set fdl=1
+
+" =============================================================================
+" 소스파일이 폴딩 되어 있을때 폴딩범위를 보여주는 컬럼의 수를 설정한다.
+" =============================================================================
+set fdc=0
+
+" =============================================================================
+" 윈도우 사용시 gvim의 폰트및 gui 옵션을 설정한다. gui 옵션은 메뉴, 스크롤바,
+" 툴바, 스크롤바의 위치 기타 등등 gvim 사용시 보여 지는 것들에 대한 옵션을
+" 설정하는 것이다. 아래의 설정은 아무것도 없이 사용하는 것이다.
+" =============================================================================
+if has("win32")
+    set guifont=굴림체:h9:cHANGEUL
+    set guioptions=
+endif
+
+" =============================================================================
+" 파일 편집시 undo 할수 있는 최대 횟수를 설정한다.
+" =============================================================================
+set history=1000
+
+" =============================================================================
+" search 시 찾는 단어를 하이라이팅 해 준다.
+" =============================================================================
+set hlsearch
+
+" =============================================================================
+" 찾기, 바꾸기 등에서 대소문자 구분을 하지 않는다.
+" =============================================================================
+set ignorecase
+
+" =============================================================================
+" MS 윈도우에서 한영 전환 패치가 되었을때 insert 모드나 command 모드로 들어
+" 갈때 영어로 입력 시작하게 한다. 아래는 기본 값이다.
+" =============================================================================
+"set noimdisable
+"set noimcmdline
+
+" =============================================================================
+" search시(/) 영어로 입력이 시작 되게 한다.
+" =============================================================================
+set iminsert=0
+set imsearch=0
+
+" =============================================================================
+" 한텀에서 한영전환을 Shift+space 로 변경할 수 있게 한다.
+" =============================================================================
+"set imactivatekey=S-space
+"
+" =============================================================================
+" status line(맨아래 상태줄)이 항상 나오게 해 준다. 기본은(1) 두개 이상의
+" 윈도우를 열었을시(윈도우를 split할때)만 나오게 된다.
+" =============================================================================
+set laststatus=2
+
+" =============================================================================
+" 뭘 뜻하는지 잘 모르겠다.
+" =============================================================================
+set linebreak
+
+" =============================================================================
+" MS windows 에서 라인 간격을 조정 해 준다. 기본 값은 1이다.
+" =============================================================================
+if has("win32")
+    set linespace=0
+endif
+
+" =============================================================================
+" 줄번호를 보여 준다.
+" =============================================================================
+set number
+
+" =============================================================================
+" >>, << command 시 shift 할 크기를 정해준다 통상 와 동일하게 설정 하면 된다.
+" =============================================================================
+set shiftwidth=4
+
+" =============================================================================
+" 닫는 괄호")", 브라켓"}"을 입력시 매칭되는 여는 괄호, 브라켓에 잠시 커서가
+" 위치했다가 다시 제자리로 돌아 온다.
+" =============================================================================
+set showmatch
+
+" =============================================================================
+" 뭘 뜻하는지 잘 모르겠다.
+" =============================================================================
+set smarttab
+
+" =============================================================================
+"
+" =============================================================================
+set smartindent
+
+" =============================================================================
+"
+" =============================================================================
+set softtabstop=4
+
+" =============================================================================
+" 화면 맨 아래 상태 줄이 어떻게 나오는 가를 형식화 하는 것이다.
+" =============================================================================
+set statusline=\ %f\ %m%h%r\ [%P]\ %a\ %<%l:%v\
+
+" =============================================================================
+" 각 파일의 성격(?)에 맞게 색깔로 보여 준다.
+" =============================================================================
+syntax on
+
+" =============================================================================
+" vi가 끝난 후에 화면 제어를 한다. 즉 vi가 끝이 난후 화면을 vi가 시작 하기
+" 전으로 되될려 놓는가 아닌가를 결정 한다. 보통 xterm* 의 경우는 vi가 시작 되기
+" 전의 화면으로 되돌려 놓는다.
+" =============================================================================
+"set t_te=""
+"set t_ti=""
+"
+" =============================================================================
+" 탭으로 사용할 크기를 정한다. tabstop 를 4로 둘경우 기존의 많은 소스들의
+" indentation 이 깨어 지기 때문에 tabstop는 8로 놓고 shiftwidth을 4로 놓으면
+" 보는 소스는 tabstop를 8로 볼수 있고 직접 작성하는 소스에 indentation을 4로
+" 맞출수가 있다. 요즘은 tabstop이 4로 가는 추세이다.
+" =============================================================================
+set tabstop=8
+
+" =============================================================================
+" 운영체제에 맞는 터미널을 설정한다. 유닉스의 경우는 xterm 이나
+" xterm-color으로 설정하고 MS 윈도우의 경우는 win32로 설정한다. 유닉스의 경우
+" 터미널에 따라 backspace, del 키가 작동을 달리 하니 각 터미널을 사용해 보고
+" 오작동 하지 않는 터미널을 선택하여 사용한다.
+" =============================================================================
+if has("unix")
+    set term=xterm-color
+elseif has ("win32")
+"    set term=win32
+endif
+
+" =============================================================================
+" 확장자가 txt 로 끝나는 파일을 작성시 혹은 편집시 폭을 80으로 설정한다. 이는
+" 80 column 이 넘게 되면 자동으로 Enter을 넣어 준것과 같은 효과를 낸다.
+" =============================================================================
+au BufNewFile,BufRead *.txt set textwidth=80
+
+" =============================================================================
+" search 시 파일의 맨끝까지 다 찾고 난뒤 다시 파일의 처음으로 돌아가서 찾을수
+" 있게 해주는 것이다. 기본값은 on 이다.
+" =============================================================================
+set nowrapscan
+
+" =============================================================================
+" 색깔 설정
+" 윈도우의 경우는 MS, MSB라는 새로운 두가지 색깔을 정의 해서 사용한다.
+" =============================================================================
+"Cursor         the character under the cursor
+"Directory      directory names (and other special names in listings)
+"DiffAdd                diff mode: Added line |diff.txt|
+"DiffChange     diff mode: Changed line |diff.txt|
+"DiffDelete     diff mode: Deleted line |diff.txt|
+"DiffText       diff mode: Changed text within a changed line |diff.txt|
+"ErrorMsg       error messages on the command line
+"VertSplit      the column separating vertically split windows
+"Folded         line used for closed folds
+"FoldColumn     'foldcolumn'
+"IncSearch      'incsearch' highlighting; also used for the text replaced with ":s///c"
+"LineNr         line number for ":number" and ":#" commands, and when 'number' option is se
+"ModeMsg                'showmode' message (e.g., "-- INSERT --")
+"MoreMsg                |more-prompt|
+"NonText                '~' and '@' at the end of the window, characters from
+"               'showbreak' and other characters that do not really exist in
+"               the text (e.g., ">" displayed when a double-wide character
+"               doesn't fit at the end of the line).
+"Normal         normal text
+"Question       |hit-enter| prompt and yes/no questions
+"Search         Last search pattern highlighting (see 'hlsearch').
+"               Also used for highlighting the current line in the quickfix
+"               window and similar items that need to stand out.
+"SpecialKey     Meta and special keys listed with ":map", also for text used
+"               to show unprintable characters in the text, 'listchars'.
+"               Generally: text that is displayed differently from what it
+"               really is.
+"StatusLine     status line of current window
+"StatusLineNC   status lines of not-current windows
+"               Note: if this is equal to "StatusLine" Vim will use "^^^" in
+"               the status line of the current window.
+"Title          titles for output from ":set all", ":autocmd" etc.
+"Visual         Visual mode selection
+"VisualNOS      Visual mode selection when vim is "Not Owning the Selection".
+"               Only X11 Gui's |gui-x11| and |xterm-clipboard| supports this.
+"WarningMsg     warning messages
+"WildMenu       current match in 'wildmenu' completion
+if has("unix")
+    hi Comment ctermfg=DarkGray
+    hi Folded ctermbg=Brown ctermfg=Black
+    hi FoldColumn ctermfg=DarkYellow ctermbg=NONE
+    hi LineNr ctermfg=DarkGray
+    hi Search ctermfg=DarkYellow ctermbg=Black cterm=underline,bold
+    hi DiffAdd term=bold ctermbg=Brown
+    "" bold off
+    hi NonText cterm=NONE
+    hi ErrorMsg cterm=NONE
+    hi ModeMsg cterm=NONE
+    hi StatusLine term=REVERSE cterm=bold ctermfg=Black ctermbg=LightGray
+    hi VisualNOS term=NONE cterm=NONE
+    hi DiffDelete term=NONE cterm=NONE
+    hi DiffText cterm=NONE
+    hi Error cterm=NONE
+    hi Statement ctermfg=6
+elseif has ("win32")
+    " MS 윈도우 버튼 기본 색깔인 회색으로 지정
+    "212 208 200    MS #D4D0C8
+    "199 199 199    MSB #C7C7C7
+    hi Normal guibg=#D4D0C8 guifg=Black
+    hi NonText guibg=#C7C7C7 guifg=Black gui=NONE
+    hi Visual guibg=Black guifg=grey69
+    hi LineNr guibg=#C7C7C7 guifg=Blue
+    hi Folded guibg=DarkYellow guifg=Black
+    hi FoldColumn guibg=#C7C7C7 guifg=Blue
+    hi StatusLine guibg=Yellow guifg=black gui=reverse
+    hi Cursor guibg=Black guifg=white
+    hi CursorIM guibg=Purple guifg=Black
+    "" bold off
+    hi MoreMsg gui=NONE
+    hi ModeMsg gui=NONE
+    hi Question gui=NONE
+    hi Title gui=NONE
+    hi VisualNOS gui=NONE
+    hi DiffText gui=NONE
+    hi DiffDelete gui=NONE
+    hi Statement gui=NONE
+    hi Type gui=NONE
+endif
+
+" =============================================================================
+" =============================================================================
+" 확장 매크로 설정
+" =============================================================================
+" =============================================================================
+" =============================================================================
+" 컬러링된 html 만들기
+" =============================================================================
+com! Html :so /usr/local/share/vim/vim/syntax/2html.vim
+
+" =============================================================================
+" 다음 에러 및 이전에러 난곳으로 가기
+" =============================================================================
+map <F1> :cn<CR>
+imap <F1> <ESC>:cn<CR>
+" 아래 키는 안먹는다.
+map <C-F1> :cp<CR>
+imap <C-F1> <ESC>:cp<CR>
+
+" =============================================================================
+" 주석 처리 및 제거 하기
+" =============================================================================
+nmap <silent> <unique> <F2> <Plug>Traditionalj
+imap <silent> <unique> <F2> <Esc><Plug>Traditionalji
+vmap <silent> <unique> <F2> <Plug>Traditionalj
+
+"<F3> - 줄 끝에 주석을 더한다.
+map <F3> <End>a<Tab>/*<SPACE>*/<LEFT><LEFT>
+imap <F3> <End><Tab>/*<SPACE>*/<LEFT><LEFT>
+
+""<F4> - 탭을 더한다.
+map <F4> i<TAB><ESC><RIGHT>
+imap <F4> <ESC><TAB><ESC><RIGHT>i
+
+""<F6> - :sts
+""<F6> - :sts
+"":sts 가 안되어서 비슷하게..
+"map <F6> :sts<CR>
+"imap <F6> <ESC>:sts<CR>
+" g] 모든 태그를 보고 그중에서 고른다.
+map <F6> <C-W>g]
+imap <F6> <C-W>g]
+
+" =============================================================================
+" MS-WINDOWS 에서 창 크기 최대화 하기
+" =============================================================================
+""<F8> - :simalt~x
+if has("unix")
+elseif has("win32")
+    map <F8> :simalt~x<CR>
+    imap <F8> :simalt~x<CR>
+endif
+
+" =============================================================================
+" <F9> - :retab
+" =============================================================================
+map <F9> :retab<CR>:w<CR>
+imap <F9> <ESC>:retab<CR>:w<CR>a
+
+" =============================================================================
+" <F10> - :set fileformat=unix
+" =============================================================================
+if has("unix")
+    map <F10> :set ff=unix<CR>:w<CR>
+    imap <F10> <ESC>:set ff=unix<CR>:w<CR>a
+elseif has("win32")
+    map <F10> :set ff=dos<CR>:w<CR>
+    imap <F10> <ESC>:set ff=dos<CR>:w<CR>a
+endif
+
+" =============================================================================
+" 자동으로 Makefile 를 찾어서 컴파일 한다.
+" =============================================================================
+
+if has("unix")
+    nmap <silent><unique> <F5> :make<CR>:cwin<CR>
+"    set makeprg=make\ %<
+    au BufNewFile,BufRead *.c if !filereadable("Makefile") && !filereadable("GNUmakefile") 
+                \ set makeprg=gcc\ -Wall\ -ggdb\ -I.\ -L.\ %\ -o\ %< |
+                \ endif
+    au BufNewFile,BufRead *.cpp if !filereadable("Makefile") && !filereadable("GNUmakefile"
+                \ set makeprg=g++\ -Wall\ -ggdb\ -I.\ -L.\ %\ -o\ %< |
+                \ endif
+endif
+
+" =============================================================================
+" :Sexplorer command 시에 vertical 로 화면을 나누면서 explorer을 보여 준다.
+" pi_expl.txt 50 line 참조 vertical 로 나눈다.
+" =============================================================================
+let g:explVertical=1
+" 화면의 크기를 동일하게 한다.
+let g:explWinSize=""
+" 화면을 분할 할때 오른쪽에 새 화면이 오게 한다.
+let g:explSplitRight=1
+" 디렉토리 리스팅을 할 적에 기본 값을 자세하게 리스팅 할수 있도록 한다.
+" 시간이 많이 걸린다.
+"let g:explDetailedList=1
+"
+" =============================================================================
+" bufexplrer 이 로딩안되게 한다.
+" =============================================================================
+let loaded_bufexplorer = 1          " bufexplrer 이 로딩안되게 한다.
+let loaded_winmanager = 1           " winmanager 이 로딩 안되게 한다.
+
+" =============================================================================
+" EnhancedCommentify 에 대한 설정 help EnhancedCommentify
+" =============================================================================
+"let g:EnhCommentifyRespectIndent = 'yes'
+"let g:EnhCommentifyPretty = 'yes'
+"let g:EnhCommentifyUseBlockIndent = 'yes'
+"let g:EnhCommentifyAlignRight = 'yes'
+" =============================================================================
+" Taglist 에 대한 설정
+" =============================================================================
+" Tlist 가 가로로 열리게 만든다.
+"let Tlist_Use_Horiz_Window = 0
+" Tlist 의 기본은 30
+let Tlist_WinWidth = 21
+"let Tlist_Inc_WinWidth = 0
+" Tlist 를 좀더 편리하게 조정한다.
+function! MyTlist()
+    exe 'Tlist'
+    if exists('g:MyTlist') && g:MyTlist == 1
+        let g:MyTlist = 0
+"        exe ':<C-W> ='
+"        exe 'vert resize '
+    else
+        let g:MyTlist = 1
+        exe 'vert resize 95'
+    endif
+endfunction
+"nnoremap <silent> <F7> :Tlist<CR>
+nnoremap <silent> <F7> :call MyTlist()<CR>
+" xa 모든 버퍼를 저장하고 끝낸다.
+" help updatetime 0.1초
+set updatetime=1000
+
+" :Man 맨 페이지를 볼수 있게 해 준다..
+runtime ftplugin/man.vim
+" SQL Loader 사용시 control 파일을 위해서
+au BufNewFile,BufRead *.ctl set ft=plsql
+
+
+" =============================================================================
+" 자동으로 fold 된 상태를 저장한다.
+" =============================================================================
+au BufWinLeave *.c mkview
+au BufWinEnter *.c silent loadview
+
+if has("unix")
+elseif has ("win32")
+    au GUIEnter * simalt ~x
+endif
+
+
+" =============================================================================
+" 테스트
+" =============================================================================
+" 자동으로 }닫는 매크로
+"au BufNewFile,BufRead *.c imap { {<CR>}<ESC>O
+"au BufNewFile,BufRead *.c imap ( ( )<LEFT><LEFT>
+" 메뉴 및 메세지를 다른언어로 표현(인코딩에는 전혀 영향이 없음)
+"source $VIMRUNTIME/delmenu.vim
+"set langmenu=none
+"source $VIMRUNTIME/menu.vim
+"lan en-us
+" 현재 줄 하이라이팅 약간의 버그가 있네..
+"hi Search ctermfg=Black ctermbg=Yellow
+"nmap <silent> j :exe '/\%'.(line(".")+1).'l.*'<cr>
+"nmap <silent> k :exe '?\%'.(line(".")-1).'l.*'<cr>
+"set shm=""
