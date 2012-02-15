@@ -1,0 +1,14 @@
+0.15초 (0.15 sec)로 바꾸기
+defaults write com.apple.dock expose-animation-duration -float 0.15; killall Dock
+
+0.1초 (0.1 sec)로 바꾸기
+defaults write com.apple.dock expose-animation-duration -float 0.1; killall Dock
+
+1초 (1 sec)로 바꾸기
+defaults write com.apple.dock expose-animation-duration -float 1; killall Dock
+
+애니메이션 (no animation) 없애기
+defaults write com.apple.dock expose-animation-duration -float 0; killall Dock
+
+디폴트 (Back to Default)로 돌아가기
+defaults delete com.apple.dock expose-animation-duration; killall Dock
