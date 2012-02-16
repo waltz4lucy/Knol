@@ -23,7 +23,7 @@ set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
-set nowrap                          " Turn on line wrapping.
+set nowrap                        " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 set title                         " Set the terminal's title
 set titlestring=%t%(\ %M%)
@@ -41,7 +41,7 @@ set history=15
 set paste                         " Paste
 set noai                          " Paste No Ai
 syntax on                         " Turn on syntax highlighting.
-filetype plugin indent on        " Turn on file type detection.
+"filetype plugin indent on        " Turn on file type detection.
 "set foldmethod=marker
 "set statusline=%<%F%h%m%r%h%w%y\ %{strftime(\"%d/%m/%Y-%H:%M\")}%=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
 "set statusline=%<%F%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
