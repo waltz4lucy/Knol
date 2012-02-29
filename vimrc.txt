@@ -1,6 +1,8 @@
 set nocompatible                  " Must come first because it changes other options.
-set enc=UTF-8                     " Hangul
-set fileencodings=UTF-8           " Hangul
+set encoding=utf-8                " Vim에서 사용할 encoding
+set fileencoding=utf-8            " 현재 파일에 사용할 encoding
+set fileencodings=utf-8,cp949,cp932,euc-jp,shift-jis,big5,ucs-2le,latin1 " 파일을 열때, 자동적으로 적용할 encoding의 순서
+set termencoding=utf-8            " terminal에서 적용할 encoding
 set t_Co=256                      " 256 Color
 "set background=light
 "colorscheme solarized
@@ -10,6 +12,7 @@ set t_Co=256                      " 256 Color
 "colorscheme xoria256
 "colorscheme jellybeans
 "colorscheme darktango
+set mouse=a
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 set showmatch                     " DIsplay the match
@@ -24,7 +27,7 @@ set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 set nowrap                        " Turn on line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
+set scrolloff=2                   " Show 3 lines of context around the cursor.
 set title                         " Set the terminal's title
 set titlestring=%t%(\ %M%)
 set nobackup                      " Don't make a backup before overwriting a file.
@@ -36,20 +39,21 @@ set smartindent
 set tabstop=2                     " Global tab width.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
-set laststatus=1                  " Show the status line all the time
+set laststatus=2                  " Show the status line all the time
 set history=15
 set paste                         " Paste
 set noai                          " Paste No Ai
 syntax on                         " Turn on syntax highlighting.
-"filetype plugin indent on        " Turn on file type detection.
+"filetype plugin indent on        " Turn on file type detection. Paste Issue
 "set foldmethod=marker
 "set statusline=%<%F%h%m%r%h%w%y\ %{strftime(\"%d/%m/%Y-%H:%M\")}%=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
-"set statusline=%<%F%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
+set statusline=%<%F%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
 "set statusline=%<%F\ (%Y)\ [%1*%M%*%n%R%H]\ %=%8o'0x%04B\ %14(%c%V,%l/%LL%)
 "set cursorline
 "hi cursorline guibg=#FFFFFF
 "hi CursorColumn guibg=#FFFFFF
 
+map <C-r> :!moai main.lua %<CR>
 "map <C-l> $
 "map <C-h> ^
 "map <C-k> <C-u>
