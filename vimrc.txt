@@ -53,7 +53,7 @@ set statusline=%<%F%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
 "hi cursorline guibg=#FFFFFF
 "hi CursorColumn guibg=#FFFFFF
 
-map <C-r> :!moai main.lua %<CR>
+map <C-r> :!moai main.lua<CR>:!moai %<CR>
 "map <C-l> $
 "map <C-h> ^
 "map <C-k> <C-u>
