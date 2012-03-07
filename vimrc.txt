@@ -4,14 +4,8 @@ set fileencoding=utf-8            " 현재 파일에 사용할 encoding
 set fileencodings=utf-8,cp949,cp932,euc-jp,shift-jis,big5,ucs-2le,latin1 " 파일을 열때, 자동적으로 적용할 encoding의 순서
 set termencoding=utf-8            " terminal에서 적용할 encoding
 set t_Co=256                      " 256 Color
-"set background=light
-"colorscheme solarized
-"colorscheme twilight256
-"colorscheme yzlin256
-"colorscheme zenburn
-"colorscheme xoria256
-"colorscheme jellybeans
-"colorscheme darktango
+hi Pmenu ctermbg=238 gui=bold
+"runtime syntax/colortest.vim
 set mouse=a
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -23,6 +17,7 @@ set wildmode=list:longest         " Complete files like a shell.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 set number                        " Show line numbers.
+set nuw=1
 set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
@@ -33,34 +28,42 @@ set titlestring=%t%(\ %M%)
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
-set cindent
+set sol                           " Start Line First
+set magic
 set autoindent
 set smartindent
 set tabstop=2                     " Global tab width.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 set laststatus=2                  " Show the status line all the time
+set statusline=%<%F%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
 set history=15
 set paste                         " Paste
 set noai                          " Paste No Ai
+"filetype plugin indent on         " Turn on file type detection. Paste Issue
 syntax on                         " Turn on syntax highlighting.
-"filetype plugin indent on        " Turn on file type detection. Paste Issue
-"set foldmethod=marker
-"set statusline=%<%F%h%m%r%h%w%y\ %{strftime(\"%d/%m/%Y-%H:%M\")}%=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
-set statusline=%<%F%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
-"set statusline=%<%F\ (%Y)\ [%1*%M%*%n%R%H]\ %=%8o'0x%04B\ %14(%c%V,%l/%LL%)
-"set cursorline
-"hi cursorline guibg=#FFFFFF
-"hi CursorColumn guibg=#FFFFFF
 
-map <C-r> :!moai main.lua<CR>:!moai %<CR>
-"map <C-l> $
-"map <C-h> ^
-"map <C-k> <C-u>
-"map <C-j> <C-d>
+"let g:neocomplcache_enable_at_startup = 1
+
 "map .# :s/^\(\s*\)/\1# <CR>
 "map .3 :s/^\(\s*\)# \1/<CR>
 "map .- :s/^\(\s*\)/\1-- <CR>
 "map ._ :s/^\(\s*\)-- \1/<CR>
 "map ./ :s/^\(\s*\)/\1\/\/ <CR>
 "map .? :s/^\(\s*\)\/\/ \1/<CR>
+
+if has("autocmd")
+    autocmd FileType lua          map <F12> :w<CR>:!moai main.lua<CR>:!moai %<CR>
+
+    " 괄호 자동 완성
+    autocmd FileType *            inoremap { {}<LEFT>
+    autocmd FileType *            inoremap [ []<LEFT>
+    autocmd FileType *            inoremap ( ()<LEFT>
+    autocmd FileType c,cpp,php    inoremap { {<CR>}<C-O>O
+    autocmd FileType c,cpp,php    inoremap " ""<LEFT>
+    autocmd FileType c,cpp,php    inoremap ' ''<LEFT>
+
+    autocmd FileType *            set nocindent
+    autocmd FileType c,cpp,php    set cindent
+    autocmd FileType lua          set complete+=k~/.vim/syntax/lua.vim isk+=.,(
+endif
