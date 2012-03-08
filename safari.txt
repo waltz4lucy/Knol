@@ -1,2 +1,5 @@
 Quickly Jump to Address Bar : Command + L
 Quickly Jump to Search Bar : Command + Option + F
+
+// Always open link to new tabs
+defaults write com.apple.Safari TargetedClicksCreateTabs -bool true
