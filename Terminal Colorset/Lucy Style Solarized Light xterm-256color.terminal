@@ -2,13 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BackgroundBlur</key>
-	<real>0.0</real>
 	<key>BackgroundColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
 	AAGGoKMHCA9VJG51bGzTCQoLDA0OViRjbGFzc1xOU0NvbG9yU3BhY2VVTlNSR0KAAhAB
-	TxAsMC45ODk0MzQxODI2IDAuOTU3OTQzOTE2MyAwLjg2NDA1OTgwNTkgMC45NQDSEBES
+	TxAsMC45ODk0MzQxODI2IDAuOTU3OTQzOTE2MyAwLjg2NDA1OTgwNTkgMC45NgDSEBES
 	E1okY2xhc3NuYW1lWCRjbGFzc2VzV05TQ29sb3KiEhRYTlNPYmplY3RfEA9OU0tleWVk
 	QXJjaGl2ZXLRFxhUcm9vdIABCBEaIy0yNztBSE9cYmRmlZqlrra5wtTX3AAAAAAAAAEB
 	AAAAAAAAABkAAAAAAAAAAAAAAAAAAADe
@@ -40,7 +38,7 @@
 	<key>FontAntialias</key>
 	<true/>
 	<key>FontWidthSpacing</key>
-	<real>1</real>
+	<real>1.004032258064516</real>
 	<key>ProfileCurrentVersion</key>
 	<real>2.02</real>
 	<key>RunCommandAsShell</key>
