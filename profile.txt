@@ -1,0 +1,51 @@
+PS1='\W\$ '
+export TERM=xterm-256color
+export NODE_PATH="/usr/local/lib/node_modules"
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+alias cdknol="cd /Users/Beautifly/Documents/Knol/"
+alias cdlk="cd /Users/Beautifly/Documents/Git/LuaKing/"
+alias cdlc="cd /Users/Beautifly/Documents/Git/Wookay/Luacat"
+alias cdmc="cd /Users/Beautifly/Documents/Git/Works/MoaiMoai/moacat/"
+alias cdac="cd /Users/Beautifly/Documents/Git/Works/MoaiMoai/amocat/"
+alias cdlm="cd /Users/Beautifly/Documents/Git/Works/MoaiMoai/libmoai/"
+alias cdmm="cd /Users/Beautifly/Documents/Git/Works/MoaiMoai/"
+alias cdgit="cd /Users/Beautifly/Documents/Git/"
+alias 644="chmod -R 644"
+alias 755="chmod -R 755"
+alias ls="ls -vGfa"
+alias ll="ls -vGfalh"
+alias df="df -h"
+alias du="du -sh */"
+
+c_cyan=`tput setaf 6`
+c_red=`tput setaf 1`
+c_green=`tput setaf 5`
+c_sgr0=`tput sgr0`
+
+parse_git_branch () {
+if git rev-parse --git-dir >/dev/null 2>&1
+	then
+		gitver=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+	else
+		return 0
+	fi
+	echo -e "" $gitver
+}
+
+branch_color () {
+if git rev-parse --git-dir >/dev/null 2>&1
+	then
+		color=""
+	if git diff --quiet 2>/dev/null >&2
+		then
+			color="${c_green}"
+		else
+			color=${c_red}
+		fi
+	else
+		return 0
+	fi
+	echo -ne $color
+}
+
+export PS1='\W\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
