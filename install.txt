@@ -48,3 +48,7 @@ sudo luarocks install luasocket
 
 // Ruby Gem
 sudo gem install socket
+
+// Vim
+sudo port selfupdate
+sudo port install vim
