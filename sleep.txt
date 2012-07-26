@@ -1,3 +1,5 @@
 sudo pmset -a hibernatemode 0 // Only Ram(Mac Mini & iMac default option)
 sudo pmset -a hibernatemode 1 // Only HDD
 sudo pmset -a hibernatemode 3 // Ram & HDD(MacBook default option)
+
+sudo rm -rf /var/vm/*
