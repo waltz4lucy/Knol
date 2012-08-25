@@ -3,3 +3,5 @@ sudo pmset -a hibernatemode 1 // Only HDD
 sudo pmset -a hibernatemode 3 // Ram & HDD(MacBook default option)
 
 sudo rm -rf /var/vm/*
+
+sudo tmutil disablelocal
