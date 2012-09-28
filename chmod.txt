@@ -1,1 +1,12 @@
+7 full
+6 read and write
+5 read and execute
+4 read only
+3 write and execute
+2 write only
+1 execute only
+0 none
+
 chmod -x *.lua
+chmod -R 644
+chmod -R 755
