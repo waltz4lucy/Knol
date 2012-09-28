@@ -1,6 +1,6 @@
 http://crazyedy.com/tech/?p=61
 
-defaults write com.apple.dock tilesize -int 38
+defaults write com.apple.dock tilesize -int 40
 defaults write com.apple.dock largesize -int 128
 
 killall Dock
