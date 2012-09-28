@@ -2,9 +2,6 @@
 [user]
   name =
   email =
-[github]
-  user =
-  token =
 
 #Color setting
 [color]
