@@ -19,11 +19,14 @@ install package
 
 # user setting(vim style)
 {
-  "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-  "ignored_packages":
-  [
-  ],
+  "ignored_packages": [ ],
   "vintage_start_in_command_mode": true
 }
 
 https://github.com/SublimeText/VintageEx
+
+# moai
+{
+  "cmd": ["/Users/Beautifly/Documents/Git/Works/moaimoai/bin/moai", "main.lua"],
+  "working_dir": "${project_path:${folder}}"
+}
