@@ -42,6 +42,7 @@ find
 		find . -size -1000 -print ; 현 디렉토리에서 크기가 1000블록 이하인 파일 검색
 		find . -mtime +10 -print ; 10일 이전에 수정된 파일 검색
 		find . -mtime -10 exec rm {} \: ; 10일 이내에 수정한 파일을 검색하여 모두 지운다.
+    find . * > save.txt
 
 	*** find 명령은 ls와 달리 하위 디렉토리까지 검색하여 출력한다.
 

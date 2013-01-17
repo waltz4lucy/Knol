@@ -1,0 +1,106 @@
+Thursday, December 6, 2012 6:27 AM
+9 Command Line Tricks for Mac OS X You Should Know
+OS X Daily
+William Pearson
+
+
+
+The command line is often considered the realm of advanced users, but that doesn’t mean every usage of Terminal has to involve rocket science. This collection of terminal tips should apply to a wide variety of Mac users, and everyone from beginners to advanced users should find something worthwhile here.
+
+Some of these tricks may require Xcode to be installed on the Mac, Xcode is a free download from the App Store.
+
+
+
+Prevent Screen Savers and Sleep with “caffeinate”
+
+New to OS X Mountain Lion, caffeinate is like a command line version of everyones favorite Caffeine utility. Usage is simple, with caffeinate running the Mac will not sleep, and screen savers will not activate. At it’s simplest, it can be run alone, but it’s probably best used with a time limit attached to it like so:
+
+caffeinate -t 3600
+
+The -t flag specifies the time in seconds, the example above runs caffeinate for an hour.
+
+
+
+Extract PKG Files with “pkgutil”
+
+Need to grab a file out of a .pkg file? Maybe you want to see what’s inside of a pkg without installing it? No sweat, pkgutil does the job:
+
+pkgutil --expand sample.pkg ~/Desktop/
+
+This will dump the entire pkg contents into the specified directory, without installing it.
+
+
+
+Use “purge” to Free Up Memory
+
+The purge command forcibly flushes the disk and memory caches, having an effect similar to when you reboot a Mac. Though some say that purge only offers a placebo effect, it absolutely does work to send system memory from the “Inactive” category back to the freely available RAM, and in situations where you are running low on real memory, it can provide a speed boost.
+
+Using purge is simple, type the following at a command prompt:
+
+purge
+
+Wait a minute or so for changes to take effect, the process is usually much faster on Macs with SSD drives.
+
+
+
+Launch Multiple Instances of Apps with “open”
+
+You may already know that you can open applications in the OS X GUI from the command line with the ‘open’ command, but did you know that you can run multiple instances of apps by attaching the -n flag to the open command? It’s easy to use, here’s all you have to do:
+
+open -n /Applications/Safari.app/
+
+The example runs another instance of Safari. Change the app name accordingly, and don’t forget to include the .app extension.
+
+
+
+Updating OS X without the App Store
+
+Want to install system software and updates without bothering with the Mac App Store? You can do that directly from the command line instead with the help of the softwareupdate command. To install every update that is available, just run the following:
+
+sudo softwareupdate -i -a
+
+You can read more about softwareupdate command here, it has been bundled in OS X for years and works the same regardless of which version you’re using.
+
+
+
+List Everything You’ve Ever Downloaded
+
+We’ve all been there; you downloaded something a while ago from a domain you sort of remember, but you can’t quite remember what or from where. You’re in luck, because Quarantine Services keeps a database of everything that has ever been downloaded, and you can query that database to find what you were looking for. Use the sqlite3 command as follows to see everything:
+
+sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent' |more
+
+Of course you can also delete that list if the existence bothers you.
+
+
+
+Hide Files or Folders from Finder with “chflags”
+
+Got a secret file or folder you want to keep hidden from the Finder? Use chflags to turn any file invisible from the OS X GUI file system, it works the same whether you’re pointing it at a file or a directory:
+
+chflags hidden /path/to/file/or/folder/
+
+Lucky (or unlucky) for us command line folks, the file will still be visible with ls, but it will remain hidden in the Finder until the “nohidden” flag is attached like so:
+
+chflags nohidden /path/to/unhide/
+
+Changes are immediate in either event.
+
+
+
+Automatically Type Long Paths with a Drag & Drop
+
+Did you know you can drag and drop any file from the Finder into the command line and the entire path to that file will be automatically printed? This isn’t exclusively a command line tip, but it’s so useful that it has to be included. This is probably best used in conjunction with a command to prefix the path, like so:
+
+sudo vi (drag file here to print the full path)
+
+This works anywhere in the command line, even when you’re already in an app.
+
+
+
+Create a Password Protected Zip Archive
+
+If you’re sending a file through an unsecured medium or hosting it publicly, yet want to provide some level of protection, you can create a password protected zip archive with the -e flag:
+
+zip -e protected.zip /file/to/protect/
+
+Without the -e flag you’ll just be creating a standard zip file without a password.
