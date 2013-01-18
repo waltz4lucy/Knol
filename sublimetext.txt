@@ -25,8 +25,11 @@ install package
 
 https://github.com/SublimeText/VintageEx
 
-# moai
+# build
 {
   "cmd": ["/Users/Beautifly/Documents/Git/Works/moaimoai/bin/moai", "main.lua"],
   "working_dir": "${project_path:${folder}}"
 }
+
+# cancel build
+{ "keys": ["ctrl+c"], "command": "exec", "args": {"kill": true} }
