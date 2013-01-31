@@ -10,6 +10,7 @@ import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_p
 # packages
 Alignment
 Color Pick
+EncodingHelper
 Git
 Goto Documentation
 MacTerminal
@@ -46,25 +47,23 @@ VintageEx
     ".DS_Store",
     "*.class",
     "*.psd",
-    "*.db"
+    "*.db",
+    ".sublime-project",
+    ".sublime-workspace"
   ],
   "folder_exclude_patterns":
   [
     ".svn",
     ".git",
     ".hg",
-    "CVS",
-    ".sublime-project",
-    ".sublime-workspace"
+    "CVS"
   ],
   "font_size": 11,
   "highlight_line": false,
   "ignored_packages":
   [
-    "Vintage",
-    "VintageEx"
   ],
-  "indent_subsequent_lines": true,
+  "indent_subsequent_lines": false,
   "indent_to_bracket": false,
   "margin": 0,
   "open_files_in_new_window": false,
@@ -74,13 +73,15 @@ VintageEx
   "theme": "Soda Dark.sublime-theme",
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": true,
-  "word_wrap": "auto"
+  "word_wrap": "auto",
+  "vintage_start_in_command_mode": true
 }
 
 # build
 {
-  "cmd": ["moai",  "$file"],
-  "path": "/Users/Beautifly/Documents/Git/Works/moaimoai/bin/"
+  "cmd": ["moai", "main.lua"],
+  "path": "/Users/Beautifly/Documents/Git/Works/moaimoai/bin/",
+  "working_dir": "$folder"
 }
 
 {
