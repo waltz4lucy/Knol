@@ -1,9 +1,20 @@
-PS1='\W\$ '
+function cd { builtin cd "$@"; echo -n -e "\033]0;${PWD##*/}\007"; }
+alias ls='ls -GF'
+alias ll='ls -lh'
+alias mongod='mongod --dbpath /Applications/mongodb-osx-x86_64-2.0.6/db'
+echo -n -e "\033]0;${PWD##*/}\007"
+
+# PS1="\w\[\033[0;32m\]\`git branch 2> /dev/null | grep -e ^* | sed -E s/^\\\\\\\\\*\ \(.+\)$/[\\\\\\\\\1]\/\`$\[\033[00m\] "
+PS1='\W\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
+# PS1='\W\$ '
+
+export ANDROID_HOME='/Applications/android-sdk-mac_x86'
+# export ANDROID_NDK_HOME='/Applications/android-ndk-r8d'
 export TERM=xterm-256color
-export NODE_PATH="/usr/local/lib/node_modules"
 export MOAI_BIN="~/Documents/Git/Works/MoaiMoai/bin"
 export MOAI_CONFIG="~/Documents/Git/Works/moai-dev/samples/config"
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export NODE_PATH="/usr/local/lib/node_modules"
+export PATH=/usr/local/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 alias cdknol="cd ~/Documents/Git/LuaKing/Knol/"
 alias cdlk="cd ~/Documents/Git/LuaKing/"
 alias cdhr="cd ~/Documents/Git/Works/MoaiMoai/libs/Hangaroa"
@@ -11,6 +22,7 @@ alias cdlc="cd ~/Documents/Git/Works/MoaiMoai/libs/luacat"
 alias cdmm="cd ~/Documents/Git/Works/MoaiMoai/"
 alias cdwk="cd ~/Documents/Git/Works"
 alias corona="/Applications/CoronaSDK/Corona\ Terminal"
+alias moai="$MOAI_BIN/moai"
 alias m="$MOAI_BIN/moai $MOAI_CONFIG/config.lua main.lua"
 alias 644="chmod -R 644"
 alias 755="chmod -R 755"
@@ -49,5 +61,3 @@ if git rev-parse --git-dir >/dev/null 2>&1
 	fi
 	echo -ne $color
 }
-
-export PS1='\W\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
