@@ -32,3 +32,6 @@ $ git config receive.denyCurrentBranch ignore
 
 Example Command Line
 git checkout FILENAME
+
+Dealing with line endings
+git config --global core.autocrlf input
