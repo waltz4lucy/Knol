@@ -1,0 +1,7 @@
+moai-dev/xcode/libmoai
+./build.sh -c Release -p ios
+/tmp/moai/ios/Release
+MoaiMoai/bin/ios/Release
+
+xcode 경로수정
+빌드세팅에서 경로수정

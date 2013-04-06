@@ -1,0 +1,11 @@
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+defaults read com.apple.desktopservices DSDontWriteNetworkStores
+
+find / -name ".DS_Store" -depth -exec rm {} \;
+find / -name ".AppleDouble" -depth -exec rm -Rf {} \;
+
+find /Volumes/music -name ".AppleDouble" -depth -exec rm -Rf {} \;
+find /Volumes/photo -name ".AppleDouble" -depth -exec rm -Rf {} \;
+find /Volumes/torrent -name ".AppleDouble" -depth -exec rm -Rf {} \;
+find /Volumes/video -name ".AppleDouble" -depth -exec rm -Rf {} \;
+find /Volumes/xtc -name ".AppleDouble" -depth -exec rm -Rf {} \;
