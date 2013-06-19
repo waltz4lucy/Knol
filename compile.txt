@@ -1,0 +1,17 @@
+# Android
+
+0. 안드로이드 SDK 설치
+/Applications/android-sdk-mac_x86
+
+1. 안드로이드 컴파일 서버 설치
+/Users/beautifly/Documents/Git/Works/moaimoai/tools/android/LuaCompileServerAndroid/run.sh
+
+2. 안드로이드 소스 덤프
+안드로이드 폰에서 컴파일 서버 실행
+/Users/beautifly/Documents/Git/Works/moaimoai/tools/compile/gen_dump_android.rb 컴파일서버ip주소
+/Users/beautifly/Documents/Git/Works/moaimoai/tools/compile/dump <- 암호화된 소스 덤프됨
+
+3. 프로젝트에서 빌드
+/Users/beautifly/Documents/Git/Works/blacksmith/hosts/android/settings-local.sh <- 덤프 주소 등 수정
+/Users/beautifly/Documents/Git/Works/blacksmith/hosts/android/settings-global.sh <- 수정
+/Users/beautifly/Documents/Git/Works/blacksmith/hosts/android/release.sh <- 실행

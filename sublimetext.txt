@@ -23,10 +23,10 @@ VintageEx
 
 # user setting
 {
-  "close_windows_when_empty": true,
+  "bold_folder_labels": true,
+  "caret_style": "phase", // “smooth”, “phase”, “blink”, “wide”, “solid”
   "color_scheme": "Packages/User/Monokai Soda.tmTheme",
-  "create_window_at_startup": true,
-  "draw_white_space": "selection",
+  "fade_fold_buttons": false,
   "file_exclude_patterns":
   [
     "*.pyc",
@@ -58,29 +58,23 @@ VintageEx
     ".hg",
     "CVS"
   ],
-  "font_size": 11,
+  "font_size": 11.0,
+  "highlight_line": true,
   "ignored_packages":
   [
     "Vintage",
     "VintageEx"
   ],
-  "indent_subsequent_lines": false,
-  "indent_to_bracket": false,
+  "vintage_start_in_command_mode": true,
   "margin": 0,
   "open_files_in_new_window": false,
-  "preview_on_click": false,
-  "remember_open_files": true,
   "soda_classic_tabs": false,
   "tab_size": 2,
   "theme": "Soda Dark.sublime-theme",
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": true,
-  "vintage_start_in_command_mode": true,
-  "word_wrap": "auto",
-  "bold_folder_labels": true,
-  "fade_fold_buttons": false,
-  "highlight_line": true,
-  "caret_style": "phase"
+  "save_on_focus_lost": true,
+  "highlight_modified_tabs": true
 }
 
 # build
@@ -120,25 +114,29 @@ ctrl + shift + 숫자 : 현재 파일을 지정한 그룹으로 보내기
 cmd + alt + 좌/우 : 파일 이동 (탭 순서 기준)
 ctrl + (shift) + tab : 파일 이동(기존 열어봤던 순서 기준)
 cmd + p : 프로젝트 파일 열기. 아주 자주 사용할 듯!
+
 파일 내 이동
 ctrl + g : 라인 이동
-ctrl + m : 매칭되는 brace / bracket 으로 이동. 중요!
+* ctrl + m : 매칭되는 brace / bracket 으로 이동. 중요!
 cmd + (shift) + u : 기존 포커싱했던 위치로 돌아감. 실수로 home이나 end 눌렀을 때 유용할 듯. 중요!
 cmd + r : 펑션/클래스 등의 주요 심볼 간 이동. 굳! 중요
-선택 (cmd + a 같은 뻔한 녀석은 생략)
-ctrl + shift + m : 매칭 블럭으로 영역 확장. ctrl + m 이매칭 브라킷 이동인 걸 기억하면 외우기 쉽네.
+
+선택
+* ctrl + shift + m : 매칭 블럭으로 영역 확장. ctrl + m 이매칭 브라킷 이동인 걸 기억하면 외우기 쉽네.
 cmd + l : 줄 전체 선택
 cmd + d: 단어 선택. 하지만 multi section 특성 때문에 단순한 단어 선택은 아니다. 이해가 안가면 알아서 공부하시길.
-cmd + ctrl + g: 현재 선택 영역을 파일 전체에서 찾아 모두 선택. 이 상태에서 커서를 움직여보면 아주 멋지다. 하하하하! 중요!
-cmd + shift + j: 동일 indent 영역으로 선택 확장. 매우 재밌고, 유용해 보이긴 한데 외워서 몸에 익히긴 쉽지 않을 듯.
+* cmd + ctrl + g: 현재 선택 영역을 파일 전체에서 찾아 모두 선택. 이 상태에서 커서를 움직여보면 아주 멋지다. 하하하하! 중요!
+* cmd + shift + j: 동일 indent 영역으로 선택 확장. 매우 재밌고, 유용해 보이긴 한데 외워서 몸에 익히긴 쉽지 않을 듯.
 cmd + u : 이전 선택 영역으로 롤백
 ctrl + shift + 위/아래 : muti section 영역 확장. vim 의 세로블럭을 뛰어넘는 대단한 모습을 볼 수 있다. 중요!
+
 찾기 / 바꾸기
 cmd + f : 당연히 찾기
 cmd + shift + f: 파일들에서 찾기. 굳굳! 중요
 cmd + i : incremental find. cmd + f 에 비해 반응이 즉각적이므로 익숙해지면 매우 편함(이클립스에도 있는 기능) 중요
 cmd + (shift) + g: find next
 alt + cmd + f : 바꾸기. 바꾸기 단축기가 왜이리 어렵냐!! 중요 바꾸기 관련 단축키도 여러개 더 있는데 이것까지 외울 여력은 없다.
+
 기타
 cmd + [ , ] : 들여/내어쓰기
 shift + ctrl + k : 줄 삭제. ctrk + k 는 끝까지 삭제.

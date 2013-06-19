@@ -1,5 +1,0 @@
-install
-curl https://raw.github.com/fallroot/dandy/master/bin/install.sh | sh
-
-uninstall
-curl https://raw.github.com/fallroot/dandy/master/bin/uninstall.sh | sh

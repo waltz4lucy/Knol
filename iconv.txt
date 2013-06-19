@@ -1,1 +1,0 @@
-iconv -f cp949 -t utf-8 ori_filename cnv_filename

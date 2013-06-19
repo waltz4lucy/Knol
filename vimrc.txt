@@ -1,47 +1,53 @@
-set nocompatible                  " Must come first because it changes other options.
-set encoding=utf-8                " Vim에서 사용할 encoding
-set fileencoding=utf-8            " 현재 파일에 사용할 encoding
-set fileencodings=utf-8,cp949,cp932,euc-jp,shift-jis,big5,ucs-2le,latin1 " 파일을 열때, 자동적으로 적용할 encoding의 순서
-set termencoding=utf-8            " terminal에서 적용할 encoding
-set t_Co=256                      " 256 Color
+set nocompatible
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,cp949,cp932,euc-jp,shift-jis,big5,ucs-2le,latin1
+set termencoding=utf-8
+"colorscheme molokai
 hi Pmenu ctermbg=238 gui=bold
-"runtime syntax/colortest.vim
+set t_Co=256
 set mouse=a
-set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
-set showmatch                     " DIsplay the match
-set backspace=indent,eol,start    " Intuitive backspacing.
-set hidden                        " Handle multiple buffers better.
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-set number                        " Show line numbers.
+set showcmd
+set showmode
+set showmatch
+set backspace=indent,eol,start
+set hidden
+set wildmenu
+set wildmode=list:longest
+set ignorecase
+set smartcase
+set number
 set nuw=1
-set ruler                         " Show cursor position.
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
-set nowrap                        " Turn on line wrapping.
-set scrolloff=2                   " Show 3 lines of context around the cursor.
-set title                         " Set the terminal's title
+set ruler
+set incsearch
+set hlsearch
+set nowrap
+set scrolloff=2
+set title
 set titlestring=%t%(\ %M%)
-set nobackup                      " Don't make a backup before overwriting a file.
-set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
-set sol                           " Start Line First
+set nobackup
+set nowritebackup
+set directory=$HOME/.vim/tmp//,.
+set sol
 set magic
 set autoindent
-set smartindent
-set tabstop=2                     " Global tab width.
-set shiftwidth=2                  " And again, related.
-set expandtab                     " Use spaces instead of tabs
-set laststatus=2                  " Show the status line all the time
-set statusline=%<%F%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
+"set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+"set laststatus=2
+"set statusline=%<%F%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
+"set statusline=%<%f%h%m%r%h%w%y\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
 set history=15
-set paste                         " Paste
-set noai                          " Paste No Ai
-"filetype plugin indent on         " Turn on file type detection. Paste Issue
-syntax on                         " Turn on syntax highlighting.
+set paste
+set noai
+"filetype plugin indent on
+syntax on
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
 
 "let g:neocomplcache_enable_at_startup = 1
 
@@ -51,19 +57,22 @@ syntax on                         " Turn on syntax highlighting.
 "map ._ :s/^\(\s*\)-- \1/<CR>
 "map ./ :s/^\(\s*\)/\1\/\/ <CR>
 "map .? :s/^\(\s*\)\/\/ \1/<CR>
+map -- :s/^\(\s*\)/\1-- <CR> /delselection<CR>
+map __ :s/-- //g<CR> /delselection<CR>
+"nmap <F7> :NERDTree<CR>
 
-if has("autocmd")
-    autocmd FileType lua          map <F12> :w<CR>:!moai main.lua<CR>:!moai %<CR>
-
-    " 괄호 자동 완성
-    autocmd FileType *            inoremap { {}<LEFT>
-    autocmd FileType *            inoremap [ []<LEFT>
-    autocmd FileType *            inoremap ( ()<LEFT>
-    autocmd FileType c,cpp,php    inoremap { {<CR>}<C-O>O
-    autocmd FileType c,cpp,php    inoremap " ""<LEFT>
-    autocmd FileType c,cpp,php    inoremap ' ''<LEFT>
-
-    autocmd FileType *            set nocindent
-    autocmd FileType c,cpp,php    set cindent
-    autocmd FileType lua          set complete+=k~/.vim/syntax/lua.vim isk+=.,(
-endif
+"if has("autocmd")
+"    "autocmd FileType lua          map <C-r> :w<CR>:!moai main.lua<CR>:!moai %<CR>
+"
+"    " 괄호 자동 완성
+"    autocmd FileType *            inoremap { {}<LEFT>
+"    autocmd FileType *            inoremap [ []<LEFT>
+"    autocmd FileType *            inoremap ( ()<LEFT>
+"    autocmd FileType c,cpp,php    inoremap { {<CR>}<C-O>O
+"    autocmd FileType c,cpp,php    inoremap " ""<LEFT>
+"    autocmd FileType c,cpp,php    inoremap ' ''<LEFT>
+"
+"    autocmd FileType *            set nocindent
+"    autocmd FileType c,cpp,php    set cindent
+"    "autocmd FileType lua          set complete+=k~/.vim/syntax/lua.vim isk+=.,(
+"endif
