@@ -24,7 +24,7 @@ VintageEx
 # user setting
 {
   "bold_folder_labels": true,
-  "caret_style": "phase", // “smooth”, “phase”, “blink”, “wide”, “solid”
+  "caret_style": "phase",
   "color_scheme": "Packages/User/Monokai Soda.tmTheme",
   "fade_fold_buttons": false,
   "file_exclude_patterns":
@@ -48,8 +48,10 @@ VintageEx
     "*.class",
     "*.psd",
     "*.db",
-    ".sublime-project",
-    ".sublime-workspace"
+    "*.meta",
+    "._*",
+    "*.sublime-project",
+    "*.sublime-workspace"
   ],
   "folder_exclude_patterns":
   [
@@ -60,21 +62,21 @@ VintageEx
   ],
   "font_size": 11.0,
   "highlight_line": true,
+  "highlight_modified_tabs": true,
   "ignored_packages":
   [
     "Vintage",
     "VintageEx"
   ],
-  "vintage_start_in_command_mode": true,
+  "theme": "Soda Dark.sublime-theme",
+  "soda_classic_tabs": false,
+  "soda_folder_icons": true,
   "margin": 0,
   "open_files_in_new_window": false,
-  "soda_classic_tabs": false,
   "tab_size": 2,
-  "theme": "Soda Dark.sublime-theme",
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": true,
-  "save_on_focus_lost": true,
-  "highlight_modified_tabs": true
+  "vintage_start_in_command_mode": true
 }
 
 # build
