@@ -5,3 +5,7 @@ sudo pmset -a hibernatemode 3 // Ram & HDD(MacBook default option)
 sudo rm -rf /var/vm/*
 
 sudo tmutil disablelocal
+
+pmset -g |grep standbydelay
+sudo pmset -a standbydelay 86400 // 24 hours
+sudo pmset -a standbydelay 4200 // default
