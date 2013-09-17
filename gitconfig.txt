@@ -1,4 +1,4 @@
-#Account setting
+﻿#Account setting
 [user]
   name = Lucy Diamond
   email = waltz4lucy@gmail.com
@@ -27,8 +27,9 @@
   whitespace = red reverse
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	autocrlf = input
-	quotepath = false
+    autocrlf = input
+    quotepath = false
+  precomposeunicode = true
 
 #Alias setting
 [alias]
@@ -48,4 +49,4 @@
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
 [push]
-	default = simple
+    default = simple
