@@ -1,1 +1,2 @@
 adb install appname.apk
+adb logcat -s Unity
