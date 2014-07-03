@@ -1,1 +1,2 @@
 brew install colordiff
+brew install colorsvn
