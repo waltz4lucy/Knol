@@ -122,6 +122,10 @@ VintageEx
   <scope>source.lua</scope>
 </snippet>
 
+# regex find & replace
+\(\int\)LocalizeSetting.UILocalize.(\w+)
+"$1"
+
 # shortcut
 창/파일 이동
 cmd + alt + 숫자 : 화면 레이아웃 바꾸기
