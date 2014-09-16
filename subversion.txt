@@ -1,2 +1,3 @@
+brew install subversion --unicode-path
 brew install colordiff
 brew install colorsvn
