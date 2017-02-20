@@ -1,2 +1,3 @@
 ssh -l root url
 ssh-keygen -p
+ssh-add
