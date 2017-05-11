@@ -1,0 +1,37 @@
+{
+    "editor.fontSize": 12,
+    "editor.lineHeight": 24,
+    "editor.fontLigatures": true,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "editor.formatOnPaste": true,
+    "pasteAndIndent.selectAfter": true,
+    "files.encoding": "utf8",
+    "files.trimTrailingWhitespace": true,
+    "editor.mouseWheelZoom": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": true,
+    "editor.renderIndentGuides": true,
+    "editor.renderLineHighlight": "line",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true
+    },
+    "terminal.integrated.shellArgs.osx": [
+        "-l"
+    ],
+    "editor.codeLens": true,
+    "workbench.colorTheme": "Kimbie Dark",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.editor.openPositioning": "last",
+    "workbench.colorCustomizations": {
+        "tab.inactiveBackground": "#221a0f",
+        "tab.border": "#221a0f",
+        "editorGroupHeader.tabsBackground": "#221a0f",
+        "sideBar.background": "#221a0f"
+    }
+}
