@@ -29,9 +29,12 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.editor.openPositioning": "last",
     "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#221a0f",
+        "sideBar.background": "#221a0f",
+        "tab.activeBackground": "#221a0f",
         "tab.inactiveBackground": "#221a0f",
         "tab.border": "#221a0f",
-        "editorGroupHeader.tabsBackground": "#221a0f",
-        "sideBar.background": "#221a0f"
+        "editorGroup.dropBackground": "#51412c",
+        "editorGroupHeader.tabsBackground": "#221a0f"
     }
 }
