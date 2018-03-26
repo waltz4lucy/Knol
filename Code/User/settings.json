@@ -1,10 +1,11 @@
-// Place your settings in this file to overwrite the default settings
 {
     "editor.fontSize": 12,
     "editor.lineHeight": 24,
     "editor.fontLigatures": true,
     "editor.insertSpaces": true,
     "editor.detectIndentation": true,
+    "editor.formatOnPaste": true,
+    "pasteAndIndent.selectAfter": true,
     "files.encoding": "utf8",
     "files.trimTrailingWhitespace": true,
     "editor.mouseWheelZoom": false,
@@ -13,10 +14,30 @@
     "editor.renderIndentGuides": true,
     "editor.renderLineHighlight": "line",
     "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true
     },
+    "terminal.integrated.shellArgs.osx": [
+        "-l"
+    ],
+    "editor.codeLens": true,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.editor.openPositioning": "last",
+    "editor.minimap.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.colorCustomizations": {},
+    // "window.zoomLevel": 0,
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "materialTheme.cache.workbench.settings": {
+        "themeColours": "Darker",
+        "accentPrevious": "Graphite"
+    },
+    "workbench.colorTheme": "Material Theme",
+    "vsicons.dontShowNewVersionMessage": true
 }
